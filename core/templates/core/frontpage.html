@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Bun venit
+{% endblock %}
+
+{% block content %}
+    {% for product in products %}
+        <div style="margin-top: 60px;"">{{ product.title }}</div>
+    {% endfor %}
+{% endblock %}
