@@ -1,0 +1,21 @@
+todo
+    -DONE create VE 
+    -DONE install and setup 
+    -DONE init database, superuser, test run 
+    -DONE create core app for base pages
+    -DONE create app for userprofiles
+    -DONE create app for products
+        -DONE add category model
+    -list products front pages
+    -product detail view
+    -category view
+    -simple search
+    -vendor detail pages
+    -log in sistem
+    -Create my account page
+    -add product to the cart
+    -view cart
+    -checkout
+    -Implement payment gateway
+    -admin pages for the vendors
+    -deploy project
