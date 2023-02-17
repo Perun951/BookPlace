@@ -5,7 +5,30 @@ Bun venit
 {% endblock %}
 
 {% block content %}
-    {% for product in products %}
-        <div style="margin-top: 60px;"">{{ product.title }}</div>
-    {% endfor %}
+<div class="d-flex justify-content-center align-items-center ">
+    <div class="card mb-3 border-light " style="width: 30vw; height: 77.5px; margin-top: 80px; background-color: #66b2b2;">
+        <div class="card-body" align="center">
+            <h5 class="card-title"><font size="6">Carti noi:</font></h5>
+        </div>  
+    </div>
+</div>
+    <div class="d-flex justify-content-around flex-wrap gap-3 align-items-center">
+        {% for product in products %}
+            <div style="margin-top: 50px;" align="center">              
+                <div class="card" style="width: 18rem;">
+                         <a href="{% url 'product_detail' product.slug %}">
+                            <img src="..." class="card-img-top" alt="imagine">
+                         </a>
+                        <div class="card-body" style="background-color: #b2d8d8; border-color: #b2d8d8;">
+                            <div class="product">    
+                                <a href="{% url 'product_detail' product.slug %}">                           
+                                <p class="card-text" align="center">{{ product.title }}</p>
+                                </a>
+                                <p class="card-text" align="right"><font color="gray">{{product.author}}</font></p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

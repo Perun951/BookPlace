@@ -16,18 +16,3 @@ def viziune(request):
 
 def contact(request):
     return render(request, 'core/contact.html')
-
-def actiune(request):
-    return render(request, 'core/actiune.html')
-
-def adventura(request):
-    return render(request, 'core/adventura.html')
-
-def fantezie(request):
-    return render(request, 'core/fantezie.html')
-
-def educatie(request):
-    return render(request, 'core/educatie.html')
-
-def religie(request):
-    return render(request, 'core/religie.html')

@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% block title %}
+{{ product.title }}
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-around flex-wrap gap-3 align-items-center">
+    <div style="margin-top: 80px;">
+
+        <h1>{{ product.title }}</h1>
+        <p>{{product.author}}</p>
+        {% if product.description %}
+
+                <p style="margin-top: 60px;">{{product.description}}</p>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
