@@ -5,9 +5,9 @@ todo
     -DONE create core app for base pages
     -DONE create app for userprofiles
     -DONE create app for products
-        -DONE add category model
-    -list products front pages
-    -product detail view
+        -DONE add category model 
+    -DONE list products front pages
+    -DONE product detail view
     -category view
     -simple search
     -vendor detail pages
@@ -19,3 +19,5 @@ todo
     -Implement payment gateway
     -admin pages for the vendors
     -deploy project
+
+58.37
