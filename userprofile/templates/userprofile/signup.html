@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Inscrie-te
+{% endblock %}
+
+{% block content %}
+<div style="margin-top: 90px;">
+    <h1>Inscrie-te</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="bg-dark py-2 px-8 rounded-4 text-secondary " style="margin-left: 5vw;">Inscrie-te</button>
+    </form>
+</div>
+{% endblock %}

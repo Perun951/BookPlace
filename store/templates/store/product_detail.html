@@ -6,12 +6,24 @@
 {% block content %}
 <div class="d-flex justify-content-around flex-wrap gap-3 align-items-center">
     <div style="margin-top: 80px;">
+        <div class="image">  
+            <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../media/photo_2023-02-08_13-03-17.jpg {% endif %}" width="40%" height="40%" alt="Image of {{ product.title }}">
+        </div>
 
         <h1>{{ product.title }}</h1>
-        <p>{{product.author}}</p>
+        <p>Autor: <a href="#" class="text-success" style="text-decoration: none;">{{product.author}}</a></p>
+        <p>
+           
+            Incarcata de: <a href="{% url 'publisher_detail' product.user.id %}" class="text-success" style="text-decoration: none;">
+            {% firstof product.user.get_full_name product.user.username %}
+            </a>
+        </p>
+        <p>Editia: <span class="text-success">{{product.editie}}</span></p>
+        <p>Editura: <span class="text-success">{{product.editura}}</span></p>
+        <p>Categoria: <a class="text-success" href="{% url 'category_detail' product.category.slug %}" style="text-decoration: none;">{{product.category}}</a></p>
         {% if product.description %}
 
-                <p style="margin-top: 60px;">{{product.description}}</p>
+                <p style="margin-top: 40px;">Descriere:<br>{{product.description}}</p>
 
         {% endif %}
     </div>
