@@ -8,16 +8,21 @@ todo
         -DONE add category model 
     -DONE list products front pages
     -DONE product detail view
-    -category view
-    -simple search
-    -vendor detail pages
-    -log in sistem
-    -Create my account page
-    -add product to the cart
-    -view cart
-    -checkout
-    -Implement payment gateway
+    -DONE category view
+    -DONE show creator on product detail page
+    -DONE add images to the products
+    -DONE vendor detail pages
+    -DONE log in sistem
+    -DONE Create my account page
+    -DONE simple search
     -admin pages for the vendors
+    -upload files
+    -author page
+    -round corner images
+    -update all front end
     -deploy project
 
-58.37
+   18.30 part 3
+
+
+
