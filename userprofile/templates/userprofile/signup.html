@@ -5,9 +5,9 @@ Inscrie-te
 {% endblock %}
 
 {% block content %}
-<div style="margin-top: 90px;">
-    <h1>Inscrie-te</h1>
-    <form method="post" action=".">
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">Inscrie-te</font></h5>
+    <form method="post" action="." style="margin-top: 5vh;">
         {% csrf_token %}
 
         {{ form.as_p }}

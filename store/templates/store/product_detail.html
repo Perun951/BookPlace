@@ -4,28 +4,36 @@
 {% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-around flex-wrap gap-3 align-items-center">
-    <div style="margin-top: 80px;">
-        <div class="image">  
-            <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../media/photo_2023-02-08_13-03-17.jpg {% endif %}" width="40%" height="40%" alt="Image of {{ product.title }}">
-        </div>
-
-        <h1>{{ product.title }}</h1>
-        <p>Autor: <a href="#" class="text-success" style="text-decoration: none;">{{product.author}}</a></p>
-        <p>
-           
-            Incarcata de: <a href="{% url 'publisher_detail' product.user.id %}" class="text-success" style="text-decoration: none;">
-            {% firstof product.user.get_full_name product.user.username %}
-            </a>
-        </p>
-        <p>Editia: <span class="text-success">{{product.editie}}</span></p>
-        <p>Editura: <span class="text-success">{{product.editura}}</span></p>
-        <p>Categoria: <a class="text-success" href="{% url 'category_detail' product.category.slug %}" style="text-decoration: none;">{{product.category}}</a></p>
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <div class="d-flex justify-content-around">
+            <div class="text">
+                <h1 style="margin-bottom: 40px;">{{ product.title }}</h1>
+                <p>Autor: <a href="#" class="text-success" style="text-decoration: none;">{{product.author}}</a></p>
+                <p>
+                
+                    Incarcata de: <a href="{% url 'publisher_detail' product.user.id %}" class="text-success" style="text-decoration: none;">
+                    {% firstof product.user.get_full_name product.user.username %}
+                    </a>
+                </p>
+                <p>Editia: <span class="text-success">{{product.editie}}</span></p>
+                <p>Editura: <span class="text-success">{{product.editura}}</span></p>
+                <p>Categoria: <a class="text-success" href="{% url 'category_detail' product.category.slug %}" style="text-decoration: none;">{{product.category}}</a></p>
+            </div>
+            <div class="image d-flex flex-column mb-3">  
+                <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../media/photo_2023-02-08_13-03-17.jpg {% endif %}" width="300vw" height="300vh" alt="Image of {{ product.title }}">
+                <button class="text-bg-success rounded mx-auto" style="width: 100%;height: 100%; margin-top: 30px;">
+                    Download
+                </button>
+            </div>
+    </div>
+    <div>
         {% if product.description %}
-
-                <p style="margin-top: 40px;">Descriere:<br>{{product.description}}</p>
-
+        <p style="margin-top: 40px;">Descriere:</p>
+        <br>
+        <p>
+        {{product.description}}
         {% endif %}
+        </p>
     </div>
 </div>
 {% endblock %}

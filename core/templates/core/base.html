@@ -18,13 +18,16 @@
               </button>
               <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                 <form class="d-flex mt-3 " style="margin-left: 4%;margin-right: 4%;" role="search" method="get" action="/search/">
-                  <input class="form-control me-2 shadow bg-body-tertiary rounded" type="search" placeholder="Search" aria-label="Search" name="query">
-                  <button class="btn btn-success bg-body-success rounded" type="submit">Search</button>
+                  <input class="form-control me-2 shadow bg-body-tertiary rounded" type="search" placeholder="Cautare" aria-label="Search" name="query">
+                  <button class="btn btn-success bg-body-success rounded" type="submit">Cauta</button>
                 </form>  
                 <div class="offcanvas-header">
                   {% if request.user.is_authenticated %}
-                    <a href="{% url 'myaccount' %}" class="button text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><p class="text-center" style="font-size: 1rem;">Contul meu</p></a>
-                    <a href="{% url 'my_store' %}" class="button text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><p class="text-center" style="font-size: 1rem;">Magazinul meu</p></a>
+                    <a href="{% url 'myaccount' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><p class="text-center" style="font-size: 1rem;">Contul meu</p></a>
+                    <a href="{% url 'my_store' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><p class="text-center" style="font-size: 1rem;">Magazinul meu</p></a>
+                  {% else %}
+                  <a href="{% url 'login' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><p class="text-center" style="font-size: 1rem;">Conectare</p></a>
+                  <a href="{% url 'signup' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><p class="text-center" style="font-size: 1rem;">Inregistrare</p></a>                  
                   {% endif %}
                 </div> 
                 <div class="offcanvas-header">
@@ -43,9 +46,10 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Despre noi
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                          <li><a class="dropdown-item" href="{% url 'contact' %}">Contact</a></li>
-                          <li><a class="dropdown-item" href="{% url 'viziune' %}">Viziune</a></li>
+                        <ul class="dropdown-menu  text-bg-success">
+                          <li><a class="dropdown-item" href="{% url 'contact' %}" style="color: white;">Contact</a></li>
+                          <li><hr class="my-3"></li>
+                          <li><a class="dropdown-item" href="{% url 'viziune' %}" style="color: white;">Viziune</a></li>
                         </ul>
                       </li>
                     </ul>

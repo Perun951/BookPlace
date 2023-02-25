@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+<!-- <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
     <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">{% firstof user.get_full_name user.username %}</font></h5>
     <div class="d-flex justify-content-around flex-wrap gap-3 align-items-center " style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
-    {% for product in user.products.all %}
+    {% for product in products %}
         <div  style="margin-top: 50px;" align="center"> 
             <div class="card border-0" style="width: 20vw;">
                 <a href="{% url 'product_detail' product.category.slug product.slug %}">
@@ -28,5 +28,9 @@
         </div>
     {% endfor %}
     </div>
+</div> -->
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">{% firstof user.get_full_name user.username %}</font></h5>
+    {% include 'store/partials/products.html' %}
 </div>
 {% endblock %}

@@ -9,8 +9,7 @@ class Category(models.Model):
         ordering = ('title',)
 
     def __str__(self):
-        return self.title
-
+        return self.title    
 
 class Product(models.Model):
     DRAFT = 'draft'
@@ -28,11 +27,12 @@ class Product(models.Model):
     user = models.ForeignKey(User, related_name='products',on_delete=models.CASCADE)
     category=models.ForeignKey(Category, related_name='products',on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
+    pdf = models.FileField(upload_to='uploads/pdfs/', blank=False, null=False)
     image = models.ImageField(upload_to='uploads/product_images/', blank=True, null=True)
     editie = models.IntegerField()
     editura = models.CharField(max_length=50)
     description = models.TextField(blank=True)
-    author = models.TextField(max_length=50)
+    author = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=50)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default=ACTIVE)
@@ -42,4 +42,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
-

@@ -5,28 +5,8 @@ Bun venit
 {% endblock %}
 
 {% block content %}
-<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
     <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">Carti noi:</font></h5>
-    <div class="d-flex justify-content-around flex-wrap gap-3 align-items-center " style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
-    {% for product in products %}
-        <div  style="margin-top: 50px;" align="center"> 
-            <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 20vw; height: 300px;">
-                <a href="{% url 'product_detail' product.category.slug product.slug %}">
-                    <div class="image p-1">  
-                        <img id="corner" src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../media/photo_2023-02-08_13-03-17.jpg {% endif %}" width="100%" height="100%" alt="Image of {{ product.title }}">
-                    </div>
-                </a>
-                <div class="card-body " style="background-color: white;">
-                    <div class="product">    
-                        <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;">                                                           
-                            <p class="card-text " align="center">{{ product.title }}</p>
-                        </a>
-                        <a href="#" class="card-text text-success" style="text-decoration: none;"><p  align="right">{{product.author}}</p></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
+    {% include 'store/partials/products.html' %}
 </div>
 {% endblock %}

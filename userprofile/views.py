@@ -13,9 +13,11 @@ from store.models import Product
 
 def publisher_detail(request, pk):
     user = User.objects.get(pk=pk)
+    products = user.products.filter(status=Product.ACTIVE)
 
     return render(request, 'userprofile/publisher_detail.html', {
-        'user': user
+        'user': user,
+        'products':products,
     })
 
 @login_required
@@ -44,7 +46,7 @@ def add_product(request):
         form = ProductForm()
 
     form = ProductForm()
-    return render(request, 'userprofile/add_product.html', {
+    return render(request, 'userprofile/product_form.html', {
         'title': 'Adauga carte',
         'form': form
     })
@@ -66,7 +68,7 @@ def edit_product(request, pk):
     else:
         form=ProductForm(instance=product)
 
-    return render(request, 'userprofile/add_product.html', {
+    return render(request, 'userprofile/product_form.html', {
         'title': 'Editare carte',
         'product': product,
         'form': form
