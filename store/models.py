@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import FileExtensionValidator
 from django.db import models
 
 class Category(models.Model):
@@ -27,7 +28,7 @@ class Product(models.Model):
     user = models.ForeignKey(User, related_name='products',on_delete=models.CASCADE)
     category=models.ForeignKey(Category, related_name='products',on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    pdf = models.FileField(upload_to='uploads/pdfs/', blank=False, null=False)
+    pdf = models.FileField(upload_to='uploads/pdfs/', blank=False, null=False ,  validators=[FileExtensionValidator(allowed_extensions=["pdf","epub"])])
     image = models.ImageField(upload_to='uploads/product_images/', blank=True, null=True)
     editie = models.IntegerField()
     editura = models.CharField(max_length=50)

@@ -19,18 +19,31 @@
                 <p>Editura: <span class="text-success">{{product.editura}}</span></p>
                 <p>Categoria: <a class="text-success" href="{% url 'category_detail' product.category.slug %}" style="text-decoration: none;">{{product.category}}</a></p>
             </div>
-            <div class="image d-flex flex-column mb-3">  
+            <div class="d-flex flex-column mb-3">  
                 <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../media/photo_2023-02-08_13-03-17.jpg {% endif %}" width="300vw" height="300vh" alt="Image of {{ product.title }}">
-                <button class="text-bg-success rounded mx-auto" style="width: 100%;height: 100%; margin-top: 30px;">
-                    Download
-                </button>
+                <a href="{{ product.pdf.url }}" download>
+                    <button class="text-bg-success rounded mx-auto border-0 shadow rounded" style="width: 100%;height: 100%; margin-top: 30px;">
+                        Descarca
+                    </button>
+                </a>
+                <!-- <div onclick='download("{{ product.pdf }},{{ product.title }}")'>
+                    Descarca2
+                </div>
+                <script>
+                    function download(url, name){
+                        fetch(url).then(async(res))=>{
+
+                        }
+                    }
+                </script> -->
+                <!-- <iframe src="{{ product.pdf }}" frameborder="0"></iframe> -->
             </div>
     </div>
-    <div>
+    <div class="mx-5">
         {% if product.description %}
-        <p style="margin-top: 40px;">Descriere:</p>
+        <h3 style="margin-top: 40px;">Descriere:</h3>
         <br>
-        <p>
+        <p style="font-size: large;">
         {{product.description}}
         {% endif %}
         </p>

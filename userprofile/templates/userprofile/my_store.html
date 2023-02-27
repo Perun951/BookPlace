@@ -8,9 +8,11 @@ Magazinul meu
 
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
     <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="16">Magazinul meu</font></h5>
-    <button class="btn btn-success mx-auto" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
-        <a href="{% url 'add_product' %}" class="text-light" style="text-decoration: none;"><h5>Adauga carte</h5></a>
-    </button>
+    <a href="{% url 'add_product' %}" class="text-light mx-auto" style="text-decoration: none;">
+        <button class="btn btn-success mx-auto" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
+            <h5>Adauga carte</h5>
+        </button>
+    </a>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-success mx-auto" role="alert" style="height: 10%; width: 300px;margin-top: 14px;">
