@@ -15,14 +15,17 @@ todo
     -DONE log in sistem
     -DONE Create my account page
     -DONE simple search
-    -admin pages for the vendors
-    -upload files
-    -author page
-    -round corner images
+    -DONE admin pages for the vendors
+    -DONE upload/download files
+    -DONE change all author links
+    -DONE change all links to buttons
+    -fix status
+    -paginations
+    -carusel recomandari
     -update all front end
+    -chat form
     -deploy project
-
-   18.30 part 3
+   40 part 3
 
 
 
