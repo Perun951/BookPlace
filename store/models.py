@@ -42,22 +42,19 @@ class Product(models.Model):
     class Meta:
         ordering = ('-created_at',)
 
-    def averagereview(self):
-        review = Review.objects.filter(product=self).aggregate(avarage=Avg('rate'))
-        avg=0
-        if review["avarage"] is not None:
-            avg=float(review["avarage"])
-        return avg
-
-    def countreview(self):
-        reviews = Review.objects.filter(product=self).aggregate(count=Count('id'))
-        cnt=0
-        if reviews["count"] is not None:
-            cnt = int(reviews["count"])
-        return cnt
-
     def __str__(self):
         return self.title
+
+    def get_rating(self):
+        reviews_total = 0
+
+        for review in self.reviews.all():
+            reviews_total += review.rating
+
+        if reviews_total > 0:
+            return reviews_total / self.reviews.count()
+
+        return 0
 
 class Review(models.Model):
     product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)

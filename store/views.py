@@ -46,15 +46,23 @@ def product_detail(request, category_slug, slug,):
         content = request.POST.get('content','')
 
         if content:
-            review = Review.objects.create(
-                product= product,
-                rating = rating,
-                content = content,
-                created_by = request.user
-            )
+            reviews = Review.objects.filter(created_by=request.user, product=product)
+            if reviews.count() > 0:
+                reviews = reviews.first()
+                reviews.rating = rating
+                reviews.content = content
+                reviews.save()
+            else:
+                review = Review.objects.create(
+                    product= product,
+                    rating = rating,
+                    content = content,
+                    created_by = request.user
+                )
 
             return redirect('product_detail', category_slug=category_slug, slug=slug)
 
     return render(request, 'store/product_detail.html', {
         'product': product
     })
+    

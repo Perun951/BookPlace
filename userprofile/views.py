@@ -103,7 +103,6 @@ def signup(request):
     else:
         form = UserCreationForm()
 
-
     return render(request, 'userprofile/signup.html',{
         'form': form
     })
