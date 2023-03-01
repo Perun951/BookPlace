@@ -34,6 +34,7 @@ class Product(models.Model):
     editura = models.CharField(max_length=50)
     description = models.TextField(blank=True)
     author = models.CharField(max_length=50)
+    limba = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=50)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default=ACTIVE)
@@ -41,6 +42,29 @@ class Product(models.Model):
     class Meta:
         ordering = ('-created_at',)
 
+    def averagereview(self):
+        review = Review.objects.filter(product=self).aggregate(avarage=Avg('rate'))
+        avg=0
+        if review["avarage"] is not None:
+            avg=float(review["avarage"])
+        return avg
+
+    def countreview(self):
+        reviews = Review.objects.filter(product=self).aggregate(count=Count('id'))
+        cnt=0
+        if reviews["count"] is not None:
+            cnt = int(reviews["count"])
+        return cnt
 
     def __str__(self):
         return self.title
+
+class Review(models.Model):
+    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
+    rating = models.IntegerField(default=5)
+    content = models.TextField()
+    created_by = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.id)

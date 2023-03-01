@@ -5,7 +5,7 @@ from .models import Product
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('category', 'title', 'author', 'image', 'pdf', 'editie', 'editura', 'description',) 
+        fields = ('category', 'title', 'author', 'image', 'pdf', 'editie', 'editura', 'limba', 'description',) 
         widgets = {
             'category': forms.Select(attrs={
                 'class': 'w-100 p-3 rounded-4 border border-success'
@@ -28,6 +28,9 @@ class ProductForm(forms.ModelForm):
             'editie': forms.TextInput(attrs={
                 'class': 'w-100 p-3 rounded-4 border border-success'
             }),  
+            'limba': forms.TextInput(attrs={
+                'class': 'w-100 p-3 rounded-4 border border-success'
+            }),
             'editura': forms.TextInput(attrs={
                 'class': 'w-100 p-3 rounded-4 border border-success'
             }),                            

@@ -1,7 +1,10 @@
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
 
-from .models import Product, Category
+
+from .models import Product, Category, Review
+
 
 def validate_file_extension(value):
     if not value.name.endswith('.pdf'):
@@ -17,6 +20,8 @@ def search(request):
         Q(author__icontains=query) 
         | 
         Q(editura__icontains=query)
+        | 
+        Q(limba__icontains=query)
         )
 
     return render(request, 'store/search.html',{
@@ -33,8 +38,22 @@ def category_detail(request, slug):
         'products': products
     })
 
-def product_detail(request, category_slug, slug):
+def product_detail(request, category_slug, slug,):
     product = get_object_or_404(Product, slug=slug, status=Product.ACTIVE)
+
+    if request.method == 'POST':
+        rating = request.POST.get('rating',5)
+        content = request.POST.get('content','')
+
+        if content:
+            review = Review.objects.create(
+                product= product,
+                rating = rating,
+                content = content,
+                created_by = request.user
+            )
+
+            return redirect('product_detail', category_slug=category_slug, slug=slug)
 
     return render(request, 'store/product_detail.html', {
         'product': product

@@ -19,15 +19,15 @@
               <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                 <form class="d-flex mt-3 " style="margin-left: 4%;margin-right: 4%;" role="search" method="get" action="/search/">
                   <input class="form-control me-2 shadow bg-body-tertiary rounded" type="search" placeholder="Cautare" aria-label="Search" name="query">
-                  <button class="btn btn-success bg-body-success rounded" type="submit">Cauta</button>
+                  <button class="btn btn-success bg-body-success rounded shadow" type="submit">Cauta</button>
                 </form>  
                 <div class="offcanvas-header">
                   {% if request.user.is_authenticated %}
-                    <a href="{% url 'myaccount' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Contul meu</button></a>
-                    <a href="{% url 'my_store' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Magazinul meu</button></a>
+                    <a href="{% url 'myaccount' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded shadow" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Contul meu</button></a>
+                    <a href="{% url 'my_store' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded shadow" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Magazinul meu</button></a>
                   {% else %}
-                  <a href="{% url 'login' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Conectare</button></a>
-                  <a href="{% url 'signup' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Inregistrare</button></a>                  
+                  <a href="{% url 'login' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded shadow" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Conectare</button></a>
+                  <a href="{% url 'signup' %}" class="d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded shadow" style="color: white; text-decoration: none; margin-top: 5vh;width: 40%; height: 80%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: 1rem; width: 100%;height: 100%;">Inregistrare</button></a>                  
                   {% endif %}
                 </div> 
                 <div class="offcanvas-header">
