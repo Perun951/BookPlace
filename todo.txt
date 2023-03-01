@@ -19,13 +19,15 @@ todo
     -DONE upload/download files
     -DONE change all author links
     -DONE change all links to buttons
-    -fix status
+    -DONE fix status
+    -DONE limba carte
+    -DONE categori noi
+    -DONE corectare reviews - 9.30
+    -Done data adaugare carte afisata
     -paginations
-    -carusel recomandari
-    -update all front end
-    -chat form
+    -grila pagina 6x2
+    -separate shopers from vendors
+    -edit user page
+    -??price??
     -deploy project
    40 part 3
-
-
-
