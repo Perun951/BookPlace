@@ -23,7 +23,7 @@ todo
     -DONE limba carte
     -DONE categori noi
     -DONE corectare reviews - 9.30
-    -Done data adaugare carte afisata
+    -Done data adaugare carte afisata  
     -paginations
     -grila pagina 6x2
     -separate shopers from vendors
