@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from .models import Product, Category, Review
 
 
+
 def validate_file_extension(value):
     if not value.name.endswith('.pdf'):
         raise ValidationError(u'Error message')
@@ -16,6 +17,8 @@ def search(request):
         Q(title__icontains=query) 
         | 
         Q(description__icontains=query) 
+        |
+        Q(category__icontains=query)
         | 
         Q(author__icontains=query) 
         | 
@@ -32,10 +35,16 @@ def search(request):
 def category_detail(request, slug):
     category = get_object_or_404(Category, slug=slug)
     products = category.products.filter(status=Product.ACTIVE)
+    p = Paginator(Product.objects.all(), 8)
+    page = request.GET.get('page')
+    products_list = p.get_page(page)
+    nums = "a" * products_list.paginator.num_pages
 
     return render(request, 'store/category_detail.html', {
         'category': category,
-        'products': products
+        'products': products,
+        'products_list':products_list,
+        'nums':nums
     })
 
 def product_detail(request, category_slug, slug,):

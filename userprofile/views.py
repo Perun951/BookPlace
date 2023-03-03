@@ -5,8 +5,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 
 from .models import Userprofile
+from store.models import Product
 
 from store.forms import ProductForm
 from store.models import Product
@@ -14,19 +16,33 @@ from store.models import Product
 def publisher_detail(request, pk):
     user = User.objects.get(pk=pk)
     products = user.products.filter(status=Product.ACTIVE)
+    p= Paginator(Product.objects.all(), 8)
+    page = request.GET.get('page')
+    products_list = p.get_page(page)
+    nums = "a" * products_list.paginator.num_pages
 
     return render(request, 'userprofile/publisher_detail.html', {
         'user': user,
         'products':products,
+        'products_list':products_list,
+        'nums':nums
     })
 
 @login_required
 def my_store(request):
     products = request.user.products.exclude(status=Product.DELETED)
+    p= Paginator(Product.objects.all(), 8)
+    page = request.GET.get('page')
+    products_list = p.get_page(page)
+    nums = "a" * products_list.paginator.num_pages
 
     return render(request, 'userprofile/my_store.html',{
-        'products': products
+        'products': products,
+        'products_list':products_list,
+        'nums':nums
     })
+
+
 
 @login_required
 def add_product(request):
